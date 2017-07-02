@@ -1,50 +1,27 @@
 package pl.thelizardproject.sda.medium;
 
-import org.junit.Before;
 import org.junit.Test;
-import pl.thelizardproject.sda.medium.captain.Captain;
-import pl.thelizardproject.sda.medium.captain.SeaWolf;
-import pl.thelizardproject.sda.medium.ship.SmallShip;
-import pl.thelizardproject.sda.medium.ship.VeryBigShip;
+import pl.thelizardproject.sda.medium.exception.BrokenShipException;
+import pl.thelizardproject.sda.medium.ship.Ship;
+import pl.thelizardproject.sda.medium.ship.TransatlaticShip;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class Exercise4 {
 
-    private Captain captain;
+    @Test
+    public void testSailAfterOfBrokenShip() throws Exception {
+        Ship ship = new TransatlaticShip();
+        sail(ship, 10000);
 
-    @Before
-    public void setUp() throws Exception {
-        captain = new SeaWolf();
+        assertThatThrownBy(ship::sail)
+                .isInstanceOf(BrokenShipException.class)
+                .withFailMessage("The Transatlantic Ship is broken");
     }
 
-    @Test
-    public void testSailingWithVeryBigShip() throws Exception {
-        String expectedSailStyle = "I can sail with Very Big Ship like a boss, mate!";
-
-        captain.setShip(new VeryBigShip());
-        String sailStyle = captain.sail();
-
-        assertThat(sailStyle)
-                .isEqualTo(expectedSailStyle);
-    }
-
-    @Test
-    public void testSailingWithSmallShip() throws Exception {
-        String expectedSailStyle = "I can sail with Small Ship like a boss, mate!";
-
-        captain.setShip(new SmallShip());
-        String sailStyle = captain.sail();
-
-        assertThat(sailStyle)
-                .isEqualTo(expectedSailStyle);
-    }
-
-    @Test
-    public void testSailingWithoutShip() throws Exception {
-        assertThatThrownBy(() -> captain.sail())
-                .isInstanceOf(IllegalStateException.class)
-                .withFailMessage("I can't sail without the ship!");
+    private static void sail(Ship ship, int amount) throws BrokenShipException {
+        for (int i = 0; i < amount; i++) {
+            ship.sail();
+        }
     }
 }

@@ -4,12 +4,14 @@ import org.junit.Before;
 import org.junit.Test;
 import pl.thelizardproject.sda.medium.captain.Captain;
 import pl.thelizardproject.sda.medium.ship.Boat;
+import pl.thelizardproject.sda.medium.ship.ShipType;
 import pl.thelizardproject.sda.medium.ship.TransatlaticShip;
+import pl.thelizardproject.sda.medium.ship.strategy.TransatlanticShipControlStrategy;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class Exercise3 {
+public class Exercise5 {
 
     private Captain captain;
 
@@ -19,9 +21,10 @@ public class Exercise3 {
     }
 
     @Test
-    public void testSailingWithTransatlanticShip() throws Exception {
-        String expectedSailStyle = "I can't sail with Transatlantic Ship!";
+    public void testSailingWithKnownShip() throws Exception {
+        String expectedSailStyle = "I can sail with Transatlantic Ship with a transatlantic ship style!";
         captain.setShip(new TransatlaticShip());
+        captain.learn(ShipType.Transatlantic, new TransatlanticShipControlStrategy());
 
         String sailStyle = captain.sail();
 
@@ -30,9 +33,10 @@ public class Exercise3 {
     }
 
     @Test
-    public void testSailingWithBoat() throws Exception {
-        String expectedSailStyle = "I can sail with Boat like a boss, mate!";
+    public void testSailingWithUnknownShip() throws Exception {
+        String expectedSailStyle = "I can't sail with Boat!";
         captain.setShip(new Boat());
+        captain.learn(ShipType.Transatlantic, new TransatlanticShipControlStrategy());
 
         String sailStyle = captain.sail();
 
