@@ -3,7 +3,7 @@ package pl.thelizardproject.sda.medium;
 import org.junit.Test;
 import pl.thelizardproject.sda.medium.exception.BrokenShipException;
 import pl.thelizardproject.sda.medium.ship.Ship;
-import pl.thelizardproject.sda.medium.ship.TransatlaticShip;
+import pl.thelizardproject.sda.medium.ship.TransatlanticShip;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -11,7 +11,7 @@ public class Exercise4 {
 
     @Test
     public void testSailAfterOfBrokenShip() throws Exception {
-        Ship ship = new TransatlaticShip();
+        Ship ship = new TransatlanticShip();
         sail(ship, 10000);
 
         assertThatThrownBy(ship::sail)

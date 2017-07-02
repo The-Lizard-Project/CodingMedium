@@ -1,8 +1,8 @@
 package pl.thelizardproject.sda.medium.ship;
 
-public class TransatlaticShip extends Ship {
+public class TransatlanticShip extends Ship {
 
-    public TransatlaticShip() {
+    public TransatlanticShip() {
         super(10000, 5000);
     }
 

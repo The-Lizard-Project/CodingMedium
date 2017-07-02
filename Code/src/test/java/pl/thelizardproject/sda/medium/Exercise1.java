@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import pl.thelizardproject.sda.medium.exception.BrokenShipException;
 import pl.thelizardproject.sda.medium.ship.Ship;
-import pl.thelizardproject.sda.medium.ship.TransatlaticShip;
+import pl.thelizardproject.sda.medium.ship.TransatlanticShip;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -14,7 +14,7 @@ public class Exercise1 {
 
     @Before
     public void setUp() throws Exception {
-        ship = new TransatlaticShip();
+        ship = new TransatlanticShip();
     }
 
     @Test
