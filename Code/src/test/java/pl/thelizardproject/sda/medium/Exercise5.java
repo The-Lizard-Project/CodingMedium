@@ -5,7 +5,7 @@ import org.junit.Test;
 import pl.thelizardproject.sda.medium.captain.Captain;
 import pl.thelizardproject.sda.medium.ship.Boat;
 import pl.thelizardproject.sda.medium.ship.ShipType;
-import pl.thelizardproject.sda.medium.ship.TransatlaticShip;
+import pl.thelizardproject.sda.medium.ship.TransatlanticShip;
 import pl.thelizardproject.sda.medium.ship.strategy.TransatlanticShipControlStrategy;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -23,7 +23,7 @@ public class Exercise5 {
     @Test
     public void testSailingWithKnownShip() throws Exception {
         String expectedSailStyle = "I can sail with Transatlantic Ship with a transatlantic ship style!";
-        captain.setShip(new TransatlaticShip());
+        captain.setShip(new TransatlanticShip());
         captain.learn(ShipType.Transatlantic, new TransatlanticShipControlStrategy());
 
         String sailStyle = captain.sail();
