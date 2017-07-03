@@ -6,6 +6,7 @@ import pl.thelizardproject.sda.medium.tourist.Tourist;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public abstract class Ship {
@@ -45,16 +46,14 @@ public abstract class Ship {
         return tourists.size();
     }
 
-    public Tourist getFirstTourist() {
+    public Optional<Tourist> getFirstTourist() {
         return tourists.stream()
-                .findFirst()
-                .orElse(null);
+                .findFirst();
     }
 
-    public Tourist getLastTourist() {
+    public Optional<Tourist> getLastTourist() {
         return tourists.stream()
-                .reduce((a, b) -> b)
-                .orElse(null);
+                .reduce((a, b) -> b);
     }
 
     public String getTouristNames() {
@@ -63,16 +62,14 @@ public abstract class Ship {
                 .collect(Collectors.joining(", "));
     }
 
-    public Tourist getTheOldestTourist() {
+    public Optional<Tourist> getTheOldestTourist() {
         return tourists.stream()
-                .max(Comparator.comparingInt(o -> o.age))
-                .orElse(null);
+                .max(Comparator.comparingInt(o -> o.age));
     }
 
-    public Tourist getTheYoungestTourist() {
+    public Optional<Tourist> getTheYoungestTourist() {
         return tourists.stream()
-                .min(Comparator.comparingInt(o -> o.age))
-                .orElse(null);
+                .min(Comparator.comparingInt(o -> o.age));
     }
 
     public List<Tourist> getTouristsSortedByAgeAsc() {

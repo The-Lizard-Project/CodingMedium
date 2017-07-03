@@ -67,7 +67,8 @@ public class Exercise6 {
         addTourist(ship, tourist1, tourist2, tourist3);
 
         assertThat(ship.getFirstTourist())
-                .isEqualTo(tourist1);
+                .isNotEmpty()
+                .hasValue(tourist1);
     }
 
     @Test
@@ -79,7 +80,8 @@ public class Exercise6 {
         addTourist(ship, tourist1, tourist2, tourist3);
 
         assertThat(ship.getLastTourist())
-                .isEqualTo(tourist3);
+                .isNotEmpty()
+                .hasValue(tourist3);
     }
 
     @Test
@@ -100,7 +102,8 @@ public class Exercise6 {
         addTourist(ship, tourist1, tourist2, tourist3);
 
         assertThat(ship.getTheOldestTourist())
-                .isEqualTo(tourist3);
+                .isNotEmpty()
+                .hasValue(tourist3);
     }
 
     @Test
@@ -112,7 +115,8 @@ public class Exercise6 {
         addTourist(ship, tourist1, tourist2, tourist3);
 
         assertThat(ship.getTheYoungestTourist())
-                .isEqualTo(tourist2);
+                .isNotEmpty()
+                .hasValue(tourist2);
     }
 
     @Test
