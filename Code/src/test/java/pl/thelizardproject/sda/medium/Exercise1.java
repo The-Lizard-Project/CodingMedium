@@ -2,9 +2,7 @@ package pl.thelizardproject.sda.medium;
 
 import org.junit.Before;
 import org.junit.Test;
-import pl.thelizardproject.sda.medium.exception.BrokenShipException;
 import pl.thelizardproject.sda.medium.ship.Ship;
-import pl.thelizardproject.sda.medium.ship.TransatlanticShip;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -14,7 +12,7 @@ public class Exercise1 {
 
     @Before
     public void setUp() throws Exception {
-        ship = new TransatlanticShip();
+//        ship = new TransatlanticShip();
     }
 
     @Test
@@ -59,7 +57,7 @@ public class Exercise1 {
                 .isEqualTo(expectedEndurance);
     }
 
-    private static void sail(Ship ship, int amount) throws BrokenShipException {
+    private static void sail(Ship ship, int amount) throws Exception {
         for (int i = 0; i < amount; i++) {
             ship.sail();
         }
